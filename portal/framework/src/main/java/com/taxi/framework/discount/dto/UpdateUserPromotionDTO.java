@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,4 +15,6 @@ public class UpdateUserPromotionDTO {
 
     @NotNull(message = "Promotion ID is mandatory")
     private Long promotionId;
+
+    private boolean isUsed;
 }

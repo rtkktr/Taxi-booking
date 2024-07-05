@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -13,5 +15,6 @@ public class PromotionResponseDTO {
     private String code;
     private String description;
     private double discountPercentage;
-    private boolean userSpecific;
+    private LocalDate startDate;
+    private LocalDate endDate;
 }

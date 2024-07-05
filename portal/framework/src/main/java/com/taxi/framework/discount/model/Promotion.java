@@ -21,6 +21,9 @@ public class Promotion {
     @Column(name = "promo_code", nullable = false, unique = true)
     private String promoCode;
 
+    @Column(name = "description")
+    private String description;
+
     @Column(name = "discount_percentage", nullable = false)
     private double discountPercentage;
 
@@ -29,4 +32,5 @@ public class Promotion {
 
     @Column(name = "end_date", nullable = false)
     private LocalDate endDate;
+
 }

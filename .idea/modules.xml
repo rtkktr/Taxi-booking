@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/portal/framework/framework.iml" filepath="$PROJECT_DIR$/portal/framework/framework.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/taxi-booking-framework.iml" filepath="$PROJECT_DIR$/.idea/taxi-booking-framework.iml" />
     </modules>
   </component>

@@ -12,4 +12,5 @@ public class UserPromotionResponseDTO {
     private Long id;
     private Long userId;
     private Long promotionId;
+    private boolean isUsed;
 }

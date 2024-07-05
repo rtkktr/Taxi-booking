@@ -2,10 +2,13 @@ package com.taxi.framework.discount.dto;
 
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -21,5 +24,9 @@ public class UpdatePromotionDTO {
     @Positive(message = "Discount percentage must be positive")
     private double discountPercentage;
 
-    private boolean userSpecific;
+    @NotNull(message = "Start date is mandatory")
+    private LocalDate startDate;
+
+    @NotNull(message = "End date is mandatory")
+    private LocalDate endDate;
 }
