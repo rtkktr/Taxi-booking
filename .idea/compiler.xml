@@ -11,6 +11,7 @@
         <module name="booking" />
         <module name="framework" />
         <module name="dispatch" />
+        <module name="discount" />
         <module name="user" />
         <module name="pricing" />
       </profile>
@@ -23,6 +24,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="booking" options="-parameters" />
+      <module name="discount" options="-parameters" />
       <module name="dispatch" options="-parameters" />
       <module name="fleet" options="-parameters" />
       <module name="framework" options="-parameters" />
