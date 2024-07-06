@@ -81,20 +81,18 @@ public class PromotionServiceImpl implements PromotionService {
     }
 
     @Override
-    @Transactional
-    public double applyPromotionToBooking(long bookingId, String promotionCode) {
-        BaseBookingRequestDTO booking = bookingService.getBookingById(bookingId);
+    public double applyPromotionToBooking(BaseBookingRequestDTO bookingDTO, String promotionCode) {
+        // Retrieve promotion details from repository
         Promotion promotion = promotionRepository.findByPromoCode(promotionCode)
                 .orElseThrow(() -> new RuntimeException("Promotion not found with code: " + promotionCode));
 
-        double originalPrice = booking.getPrice();
+        // Calculate discounted price
+        double originalPrice = bookingDTO.getPrice();
         double discount = promotion.getDiscountPercentage();
-        double discountedPrice = originalPrice - (originalPrice * discount / 100);
 
-        bookingService.updateBookingPrice(bookingId, discountedPrice);
-
-        return discountedPrice;
+        return originalPrice - (originalPrice * discount / 100);
     }
+
 
     @Override
     @Transactional

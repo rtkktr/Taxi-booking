@@ -1,5 +1,6 @@
 package com.taxi.framework.discount.service;
 
+import com.taxi.framework.booking.dto.BaseBookingRequestDTO;
 import com.taxi.framework.discount.dto.*;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public interface PromotionService {
 
     PromotionResponseDTO getPromotionByCode(String code);
 
-    double applyPromotionToBooking(long bookingId, String promotionCode);
+    double applyPromotionToBooking(BaseBookingRequestDTO bookingDTO, String promotionCode);
 
     UserPromotionResponseDTO assignPromotionToUser(CreateUserPromotionDTO createUserPromotionDTO);
 
