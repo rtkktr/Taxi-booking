@@ -14,5 +14,5 @@ public class BaseBookingRequestDTO {
     private float destLongitude;
     private float destLatitude;
     private float price;
-    private float promotionCode;
+    private String promotionCode;
 }
