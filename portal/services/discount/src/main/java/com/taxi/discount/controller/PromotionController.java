@@ -6,7 +6,7 @@ import com.taxi.framework.discount.service.PromotionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/api/promotions")
+@RequestMapping("/api/promotion")
 @RestController
 public class PromotionController extends AbstractPromotionController {
 

@@ -14,30 +14,31 @@ public abstract class AbstractBookingCreationServiceImpl<B extends BaseBookingRe
     private Map<Long, R> assignedDriversMap = new HashMap<>();
 
     private final String dispatchEndpoint;
-    private final String promotionServiceUrl = "http://localhost:8081/api/promotion";
+    private final String promotionServiceUrl;
 
-    protected AbstractBookingCreationServiceImpl(String dispatchEndpoint) {
+    protected AbstractBookingCreationServiceImpl(String dispatchEndpoint, String promotionServiceUrl) {
         this.dispatchEndpoint = dispatchEndpoint;
+        this.promotionServiceUrl = promotionServiceUrl;
     }
 
     @Override
     @Transactional
     public String createBooking(BaseBookingRequestDTO bookingRequestDTO) {
         // Call the dispatch service to find a driver
-        RestTemplate restTemplate = new RestTemplate();
-        String findDriverUrl = dispatchEndpoint + "/find/driver";
-        ResponseEntity<Void> findDriverResponse = restTemplate.exchange(
-                findDriverUrl,
-                HttpMethod.POST,
-                new HttpEntity<>(bookingRequestDTO),
-                Void.class
-        );
+//        RestTemplate restTemplate = new RestTemplate();
+//        String findDriverUrl = dispatchEndpoint + "/find/driver";
+//        ResponseEntity<Void> findDriverResponse = restTemplate.exchange(
+//                findDriverUrl,
+//                HttpMethod.POST,
+//                new HttpEntity<>(bookingRequestDTO),
+//                Void.class
+//        );
 
-        if (findDriverResponse.getStatusCode() == HttpStatus.OK) {
+//        if (findDriverResponse.getStatusCode() == HttpStatus.OK) {
             // If driver found, proceed with booking creation
-            R bookedRequest = createBookedRequestDTO();
-            bookedRequest.setMessage(R.MessageEnum.LOOKING_FOR_A_DRIVER);
-            assignedDriversMap.put(bookingRequestDTO.getUserId(), bookedRequest);
+//            R bookedRequest = createBookedRequestDTO();
+//            bookedRequest.setMessage(R.MessageEnum.LOOKING_FOR_A_DRIVER);
+//            assignedDriversMap.put(bookingRequestDTO.getUserId(), bookedRequest);
 
             // Apply promotion if promotion code is provided
             if (bookingRequestDTO.getPromotionCode() != null) {
@@ -45,10 +46,10 @@ public abstract class AbstractBookingCreationServiceImpl<B extends BaseBookingRe
             }
 
             return "Booking request successful.";
-        } else {
-            // Handle the case where finding a driver fails
-            return "Booking request failed to find a driver.";
-        }
+//        } else {
+//            // Handle the case where finding a driver fails
+//            return "Booking request failed to find a driver.";
+//        }
     }
 
     private void applyPromotionToBooking(BaseBookingRequestDTO bookingDTO, String promotionCode) {

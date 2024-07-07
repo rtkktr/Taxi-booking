@@ -6,9 +6,6 @@ import com.taxi.framework.discount.model.Promotion;
 import com.taxi.framework.discount.model.UserPromotion;
 import com.taxi.framework.discount.repository.PromotionRepository;
 import com.taxi.framework.discount.repository.UserPromotionRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
@@ -20,7 +17,7 @@ public abstract class AbstractPromotionServiceImpl implements PromotionService {
 
     private final UserPromotionRepository userPromotionRepository;
 
-    public AbstractPromotionServiceImpl(PromotionRepository promotionRepository, UserPromotionRepository userPromotionRepository) {
+    protected AbstractPromotionServiceImpl(PromotionRepository promotionRepository, UserPromotionRepository userPromotionRepository) {
         this.promotionRepository = promotionRepository;
         this.userPromotionRepository = userPromotionRepository;
     }
@@ -84,11 +81,10 @@ public abstract class AbstractPromotionServiceImpl implements PromotionService {
 
     @Override
     public double applyPromotionToBooking(BaseBookingRequestDTO bookingDTO, String promotionCode) {
-        // Retrieve promotion details from repository
+
         Promotion promotion = promotionRepository.findByPromoCode(promotionCode)
                 .orElseThrow(() -> new RuntimeException("Promotion not found with code: " + promotionCode));
 
-        // Calculate discounted price
         double originalPrice = bookingDTO.getPrice();
         double discount = promotion.getDiscountPercentage();
 

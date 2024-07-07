@@ -12,7 +12,8 @@ public class BookingCreationServiceImpl extends AbstractBookingCreationServiceIm
 
     public BookingCreationServiceImpl() {
         super(
-                "http://localhost:10002/api"
+                "http://localhost:10002/api",
+                "http://localhost:10005/api"
         );
     }
 
