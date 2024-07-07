@@ -28,6 +28,7 @@
         <module>dispatch</module>
         <module>fleet</module>
         <module>pricing</module>
+        <module>discount</module>
     </modules>
 
     <properties>

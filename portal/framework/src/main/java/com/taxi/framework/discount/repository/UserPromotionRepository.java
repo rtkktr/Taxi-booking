@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
 public interface UserPromotionRepository extends JpaRepository<UserPromotion, Long> {
 
     @Query("SELECT up FROM UserPromotion up WHERE up.userId = :userId")

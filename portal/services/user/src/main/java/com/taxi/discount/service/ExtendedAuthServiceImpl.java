@@ -1,6 +1,6 @@
-package com.taxi.user.service;
+package com.taxi.discount.service;
 
-import com.taxi.user.dto.ExtendedUserSigninDTO;
+import com.taxi.discount.dto.ExtendedUserSigninDTO;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 

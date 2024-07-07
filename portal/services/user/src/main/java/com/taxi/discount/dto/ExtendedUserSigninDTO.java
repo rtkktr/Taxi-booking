@@ -1,4 +1,4 @@
-package com.taxi.user.dto;
+package com.taxi.discount.dto;
 
 import com.taxi.framework.user.dto.BaseUserSigninDTO;
 import lombok.Getter;

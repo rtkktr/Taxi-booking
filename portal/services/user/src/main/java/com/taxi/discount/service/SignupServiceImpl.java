@@ -1,4 +1,4 @@
-package com.taxi.user.service;
+package com.taxi.discount.service;
 
 import com.taxi.framework.user.dto.BaseUserSignupDTO;
 import com.taxi.framework.user.service.SignupService;

@@ -7,21 +7,23 @@ import com.taxi.framework.discount.model.UserPromotion;
 import com.taxi.framework.discount.repository.PromotionRepository;
 import com.taxi.framework.discount.repository.UserPromotionRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@Service
-@RequiredArgsConstructor
-public class PromotionServiceImpl implements PromotionService {
+public abstract class AbstractPromotionServiceImpl implements PromotionService {
 
     private final PromotionRepository promotionRepository;
+
     private final UserPromotionRepository userPromotionRepository;
 
-    private final String fleetEndpoint;
-    private final String bookingEndpoint;
+    public AbstractPromotionServiceImpl(PromotionRepository promotionRepository, UserPromotionRepository userPromotionRepository) {
+        this.promotionRepository = promotionRepository;
+        this.userPromotionRepository = userPromotionRepository;
+    }
 
     @Override
     @Transactional

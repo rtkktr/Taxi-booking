@@ -1,4 +1,4 @@
-package com.taxi.user;
+package com.taxi.discount;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
